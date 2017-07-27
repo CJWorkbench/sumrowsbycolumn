@@ -28,5 +28,6 @@ class Importable:
                 table[sumcolumn] = table[sumcolumn].str.replace(',', '')
                 table[sumcolumn] = table[sumcolumn].astype(float)
             newtab = table.groupby([groupby])[[sumcolumn]].sum()
+            print(newtab)
             wf_module.set_ready(notify=False)
             return newtab
