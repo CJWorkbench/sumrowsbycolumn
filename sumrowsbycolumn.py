@@ -15,13 +15,14 @@ class Importable:
         sumcolumn = wf_module.get_param_string('sumcolumn')
 
         if groupby == '' or sumcolumn == '':
-            return table
+            wf_module.set_ready(notify=False)
+            return None
         elif groupby not in table.columns:
             wf_module.set_error('Invalid group by column.')
-            return table
+            return None
         elif sumcolumn not in table.columns:
             wf_module.set_error('Invalid column for sum.')
-            return table
+            return None
         else:
             if table[sumcolumn].dtype != np.float64 and table[sumcolumn].dtype != np.int64:
                 table[sumcolumn] = table[sumcolumn].str.replace(',', '')
