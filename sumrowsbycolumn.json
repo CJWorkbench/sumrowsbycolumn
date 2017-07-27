@@ -1,6 +1,6 @@
 {
-  "name": "sumrowsbyccolumn",
-  "id_name": "Sum rows by column",
+  "name": "Sum rows by column",
+  "id_name": "sumrowsbyccolumn",
   "description": "Group rows by specified column and sum values for other column",
   "category" : "Campaign Finance",
   "parameters": [
