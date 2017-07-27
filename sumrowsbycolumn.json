@@ -5,7 +5,7 @@
   "category" : "Campaign Finance",
   "parameters": [
     {
-      "name": "Group by",
+      "name": "Group by (leave it empty to sum all rows)",
       "id_name" : "groupby",
       "type": "string"
     },

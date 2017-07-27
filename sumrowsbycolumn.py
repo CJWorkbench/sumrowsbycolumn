@@ -14,11 +14,11 @@ class Importable:
         groupby = wf_module.get_param_string('groupby')
         sumcolumn = wf_module.get_param_string('sumcolumn')
 
-        if groupby == '' or sumcolumn == '':
+        if sumcolumn == '':
             wf_module.set_ready(notify=False)
             return None
-        elif groupby not in table.columns:
-            wf_module.set_error('Invalid group by column.')
+        elif groupby not in table.columns and groupby != '':
+            wf_module.set_error('Invalid column to group row.')
             return None
         elif sumcolumn not in table.columns:
             wf_module.set_error('Invalid column for sum.')
@@ -27,7 +27,11 @@ class Importable:
             if table[sumcolumn].dtype != np.float64 and table[sumcolumn].dtype != np.int64:
                 table[sumcolumn] = table[sumcolumn].str.replace(',', '')
                 table[sumcolumn] = table[sumcolumn].astype(float)
-            newtab = table.groupby([groupby])[[sumcolumn]].sum()
-            print(newtab)
+            if groupby == '':
+                newtab = table[[sumcolumn]].sum().to_frame()
+                newtab.columns = [sumcolumn + '_sum']
+            else:
+                newtab = table.groupby([groupby])[[sumcolumn]].sum()
+                newtab = newtab.add_suffix('_sum').reset_index()
             wf_module.set_ready(notify=False)
             return newtab
