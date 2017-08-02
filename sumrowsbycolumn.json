@@ -1,16 +1,16 @@
 {
-  "name": "Sum rows by column",
+  "name": "Group And Sum",
   "id_name": "sumrowsbycolumn",
-  "description": "Group rows by specified column and sum values for other column",
-  "category" : "Campaign Finance",
+  "description": "Group rows by unique values in a specific column and sum all the values of a secondary one.",
+  "category" : "Group",
   "parameters": [
     {
-      "name": "Group by (leave it empty to sum all rows)",
+      "name": "Group by (Leave empty to sum values wihouth grouping)",
       "id_name" : "groupby",
       "type": "string"
     },
     {
-      "name": "Sum Column",
+      "name": "Sum values in column",
       "id_name" : "sumcolumn",
       "type": "string"
     }
