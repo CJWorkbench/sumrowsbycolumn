@@ -3,6 +3,7 @@
   "id_name": "sumrowsbycolumn",
   "description": "Group rows by unique values in a specific column and sum all the values of a secondary one.",
   "category" : "Group",
+  "icon": "group",
   "parameters": [
     {
       "name": "Group by (Leave empty to sum values wihouth grouping)",
