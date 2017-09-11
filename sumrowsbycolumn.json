@@ -8,12 +8,12 @@
     {
       "name": "Group by (Leave empty to sum values wihouth grouping)",
       "id_name" : "groupby",
-      "type": "string"
+      "type": "column"
     },
     {
       "name": "Sum values in column",
       "id_name" : "sumcolumn",
-      "type": "string"
+      "type": "column"
     }
   ]
 }

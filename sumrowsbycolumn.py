@@ -11,8 +11,8 @@ class Importable:
 
     @staticmethod
     def render(wf_module, table):
-        groupby = wf_module.get_param_string('groupby')
-        sumcolumn = wf_module.get_param_string('sumcolumn')
+        groupby = wf_module.get_param_column('groupby')
+        sumcolumn = wf_module.get_param_column('sumcolumn')
 
         if sumcolumn == '':
             wf_module.set_ready(notify=False)
