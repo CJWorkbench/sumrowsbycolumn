@@ -16,13 +16,13 @@ class Importable:
 
         if sumcolumn == '':
             wf_module.set_ready(notify=False)
-            return None
+            return table
         elif groupby not in table.columns and groupby != '':
             wf_module.set_error('Invalid column to group row.')
-            return None
+            return table
         elif sumcolumn not in table.columns:
             wf_module.set_error('Invalid column for sum.')
-            return None
+            return table
         else:
             if table[sumcolumn].dtype != np.float64 and table[sumcolumn].dtype != np.int64:
                 table[sumcolumn] = table[sumcolumn].str.replace(',', '')
